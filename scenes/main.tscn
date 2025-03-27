@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bl5gr647vegj5"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player1" type="ColorRect" parent="."]
+offset_left = 107.0
+offset_top = 442.0
+offset_right = 254.0
+offset_bottom = 589.0
+color = Color(0.739025, 0.958704, 0.812073, 1)
+
+[node name="Player2" type="ColorRect" parent="."]
+offset_left = 870.0
+offset_top = 59.0
+offset_right = 1017.0
+offset_bottom = 206.0
+color = Color(0.964395, 0.860199, 0.940402, 1)
