@@ -10,7 +10,11 @@ config_version=5
 
 [application]
 
-
 config/name="World Tournament"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scripts/global.gd"
