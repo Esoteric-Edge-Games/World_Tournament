@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl5gr647vegj5"]
 
-[ext_resource type="Script" path="res://scripts/flow_manager.gd" id="1_xmqxm"]
-[ext_resource type="Script" path="res://scenes/TowerText.gd" id="2_kyrg2"]
+[ext_resource type="Script" uid="uid://c7p0ysdb5bbwg" path="res://scripts/flow_manager.gd" id="1_xmqxm"]
+[ext_resource type="Script" uid="uid://bpdhujvfvykxn" path="res://scenes/TowerText.gd" id="2_kyrg2"]
 
 [sub_resource type="GDScript" id="GDScript_62vmu"]
 script/source = "extends ColorRect
