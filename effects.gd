@@ -23,7 +23,6 @@ var effects = {
 	"speed":0, #FLOAT
 	"charged":0, #INT
 }
-#Se elimino la variable de Player dado que esta creado en otra tarjeta.
 
 func process_effect(effect_name: String, params: Dictionary) -> void:
 	match effect_name:
