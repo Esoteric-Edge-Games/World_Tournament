@@ -1,88 +1,77 @@
 extends Node2D
 
 var effects = {
-	"damage": 0, #Despues se cambia el valor a una variable que lo modique correctamente
-	"a_target": null, #a=Auto Target, se puede cambiar. En lugar de Null se cambiaria a un objeto
-	"e_target": null, #e=Enemy, se puede cambiar. En lugar de Null se cambiaria a un objeto
-	"shield": 0,
-	"heal": 0,
-	"turns": 0, #Luego cambiar a cantidad de turnos totales y "temporales" para los efectos como quemadura
-	"burn": 0, #En una etapa mas avanzada se consideraran como ticks. ¿Servira crear una nueva variable=?
-	"stunned": 0, #Relacionar con turnos
-	"life_steal": 0,
-	"percent": 0, 
-	"Silenced": 0, #Silencio clase baja. (Soy clase baja, legalmente puedo joder con esto(?)
-	"reflected": 0, 
-	"rage": 0, #relacionar con turnos
-	"damage_reduction": 0,
-	"damage_increase":0,
-	"espera_rapida":0,
-	"charmed": 0, #relacionar con turnos
-	"wounds":0, #Relacionar con turnos
-	"stasis":0,
-	"sealed":0,
-	"speed":0,
-	"charged":0,
+	"damage": 0, # FLOAT Despues se cambia el valor a una variable que lo modique correctamente
+	"mana":0, #FLOAT
+	"shield": 0, #FLOAT
+	"heal": 0, #FLOAT
+	"turns": 0, #INT Luego cambiar a cantidad de turnos totales y "temporales" para los efectos como quemadura
+	"burn": 0, # INT En una etapa mas avanzada se consideraran como ticks. ¿Servira crear una nueva variable?
+	"stunned": 0, #INT Relacionar con turnos
+	"life_steal": 0,# INT
+	"percent": 0, #FLOAT
+	"Silenced": 0, #INT Silencio clase baja. (Soy clase baja, legalmente puedo joder con esto(?)
+	"reflected": 0, #FLOAT
+	"rage": 0, # INT relacionar con turnos
+	"damage_reduction": 0, #FLOAT
+	"damage_increase":0, #Se puede manejar tanto INT como FLOAT en lo personal
+	"quick_wait":0, #INT
+	"charmed": 0, #INT relacionar con turnos
+	"wounds":0, # INT Relacionar con turnos
+	"stasis":0, #INT
+	"sealed":0, #INT
+	"speed":0, #FLOAT
+	"charged":0, #INT
 }
-var player={
-	"vida"= 10000,
-	"mana"= 1000,
-	
-	efectos={
-		burn={
-			"turn":0,
-			"damage":0,
-			
-		}
-	}
-}
+#Se elimino la variable de Player dado que esta creado en otra tarjeta.
 
 func process_effect(effect_name: String, params: Dictionary) -> void:
 	match effect_name:
+			#En todos los parametros se recibe target dado que afecta a alguien (tanto al jugador como a la maquina)
 		"daño":
-			apply_damage(params)
+			apply_damage(params) #Se reciben damage 
 		"sanación":
-			apply_healing(params)
+			apply_healing(params) #Se recibe heal 
 		"escudo":
-			apply_shield(params)
+			apply_shield(params) #se recibe shield 
 		"quemadura":
-			apply_burn(params)
+			apply_burn(params) #Se recibe damage y turn
 		"aturdimiento":
-			apply_stun(params)
+			apply_stun(params) #Se recibe turn
 		"silencio":
-			apply_silence(params)
+			apply_silence(params) #Se recibe turn
 		"robo_de_vida":
-			apply_life_steal(params)
+			apply_life_steal(params) #Se recibe damage, percent y life_steal
 		"favor_divino":
-			apply_divine_favor(params)
+			apply_divine_favor(params) #No se recibe ninguna variable ma que target
 		"neutralizado":
-			apply_neutralized(params)
+			apply_neutralized(params)  #Se recibe unicamente target (mismo caso anterior)
 		"reflejo":
-			apply_reflection(params)
+			apply_reflection(params) #Se recibe percent
 		"desestabilizado":
-			apply_destabilisation(params)
+			apply_destabilisation(params) #Se recibe reduction
 		"ira":
-			apply_rage(params)
+			apply_rage(params) #Se recibe damage_increase y defense_reduction
 		"espera_rápida":
-			apply_espera_rapida(params)
+			apply_espera_rapida(params) #Se recibe turns
 		"encantado":
-			apply_charmed(params)
+			apply_charmed(params) #Se recibe target
 		"heridas_graves":
-			apply_wounds(params)
+			apply_wounds(params) #Se recibe target
 		"absorción":
-			apply_absorption(params)
+			apply_absorption(params) #Se recibe percent
 		"estasis":
-			apply_stasis(params)
+			apply_stasis(params) #Se recibe turns
 		"sellado":
-			apply_sealed(params)
+			apply_sealed(params) #Se recibe turns
 		"rápido":
-			apply_speed(params)
+			apply_speed(params) #Se recibe turns y speed
 		"cargado":
-			apply_charge(params)
+			apply_charge(params) #Se recibe percent
 		"encanto_de_maná":
-			apply_mana_charm(params)  
+			apply_mana_charm(params)  #Se recibe percent
 		"barrera_de_maná":
-			apply_mana_barrier(params) 
+			apply_mana_barrier(params) #Se recibe percent 
 
 
 # Daño "plano"
