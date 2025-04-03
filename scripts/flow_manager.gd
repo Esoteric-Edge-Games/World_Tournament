@@ -5,6 +5,10 @@ extends Node2D
 func _ready():
 	start_turn_flow()
 
+func pass_round():
+	Global.rounds +=1
+	Global.set_rounds(Global.rounds)
+	await restore_players() # Add checks for rounds
 
 func start_turn_flow():
 	await player_action()
@@ -14,6 +18,7 @@ func start_turn_flow():
 	await enemy_status()
 	await enemy_action()
 	await update_stats()
+	await pass_round()
 	start_turn_flow()
 
 func player_status():
@@ -43,3 +48,6 @@ func enemy_status():
 func enemy_action():
 	print("Enemy did something")
 	await get_tree().create_timer(1.0).timeout
+
+func restore_players():
+	print("Players stats get resetted to base")
