@@ -20,7 +20,7 @@ func process_effect(effect_name, target, turn, NoE, secondary_target, percent_li
 			apply_stun(target, NoE) #Se recibe turn
 		"silence":
 			apply_silence(target, turn) #Se recibe turn
-		"robo_de_vida":
+		"life_steal":
 			apply_life_steal(target, NoE, secondary_target, percent_life_steal) #Se recibe damage, percent y life_steal
 		"divine_favor":
 			apply_divine_favor(target) #No se recibe ninguna variable ma que target
@@ -28,7 +28,7 @@ func process_effect(effect_name, target, turn, NoE, secondary_target, percent_li
 			apply_neutralized(target)  #Se recibe unicamente target (mismo caso anterior)
 		"reflected":
 			apply_reflection(target, NoE) #Se recibe percent
-		"Desestabilizar":
+		"destabilisation":
 			apply_destabilisation(target, NoE) #Se recibe reduction
 		"rage":
 			apply_rage(target, NoE) #Se recibe damage_increase y defense_reduction
@@ -53,7 +53,7 @@ func process_effect(effect_name, target, turn, NoE, secondary_target, percent_li
 		"mana_barrier":
 			apply_mana_barrier(target, NoE) #Se recibe percent 
 
-# Daño "plano"
+# Flat damage
 func apply_damage(target, damage) -> void:
 	target.take_damage(damage)
 
