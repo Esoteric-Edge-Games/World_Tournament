@@ -1,5 +1,5 @@
 extends Node2D
-	
+
 #param0 name (string) 
 #param1 target (player! / 2)
 #param2 turns 
